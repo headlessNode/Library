@@ -1,4 +1,4 @@
-@import url('https //fonts.googleapis.com/css family=roboto+condensed');
+@import url('https //fonts.googleapis.com/css?family=roboto+condensed');
 
 * {
     margin: 0;
@@ -7,13 +7,47 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+:root{
+    --header-height: 6rem;
+    --footer-height: 6rem;
+}
+
 body{
     background: #023047;
 }
 
+.wrapper{
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
+    justify-items: center;
+    gap: 2rem;
+}
+
 .wrapper .header{
+    grid-row: 1/2;
+    width: 100%;
     background: #caf0f8;
-    height: 5rem;
+    height: var(--header-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .main-content{
+    grid-row: 2/3;
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+    width: 60%;
+    min-height: calc(100vh - (var(--header-height)+var(--footer-height)));
+    border: 1px solid white;
+}
+
+.wrapper .footer{
+    grid-row: 3/4;
+    height: var(--footer-height);
+    width: 100%;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
