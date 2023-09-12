@@ -91,10 +91,11 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .form input[type='text'], .form input[type='number']{
+    appearance: none;
     width: 80%;
     height: 2.5rem;
     outline: none;
@@ -109,7 +110,8 @@ body{
 .form button{
     font-family: inherit;
     font-size: large;
-    height: 2.5rem;
+    font-weight:600;
+    height: 2rem;
     width: 6rem;
     border: none;
     border-radius: 10px;
