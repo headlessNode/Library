@@ -36,11 +36,38 @@ body{
 .wrapper .main-content{
     grid-row: 2/3;
     display: grid;
+    grid-template-rows: 1fr 5fr;
     gap: 2rem;
     justify-items: center;
     width: 60%;
     min-height: calc(100vh - (var(--header-height)+var(--footer-height)));
     border: 1px solid white;
+}
+
+.wrapper .main-content .add-book{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-book button{
+    font-family: inherit;
+    font-size: large;
+    font-weight: bold;
+    height: 3rem;
+    width: 8rem;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    background: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-book button:hover{
+    background: #caf0f8;
+    color: black;
 }
 
 .wrapper .footer{
