@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Library</title>
-        <script src="./Js/script.js"></script>
+        <script src="./Js/script.js" defer></script>
         <link rel="stylesheet" href="./Style/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        
     </head>
     <body>
         <div class="wrapper">
@@ -15,12 +15,19 @@
             </div>
             <div class="main-content">
                 <div class="add-book">
-                    <button type="button">&#x2b Add book</button>
+                    <button class="add-btn" type="button">&#x2b Add book</button>
                 </div>
+                <dialog class="form">
+                    <input type="text" name="book-title" id="book-title" class="book-title" placeholder="Book Title">
+                    <input type="text" name="author" id="author" class="author" placeholder="Author">
+                    <input type="number" name="nPages" id="nPages" class="nPages" placeholder="Number of Pages">
+                    <button type="submit">Submit</button>
+                </dialog>
                 <div class="books">
-                    BOOKS
                 </div>
             </div>
+
+
             <div class="footer">FOOTER</div>
         </div>
     </body>

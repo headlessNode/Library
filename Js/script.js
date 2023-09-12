@@ -1,3 +1,9 @@
+let addBook = document.querySelector('.add-btn');
+let dialogForm = document.querySelector('.form');
+let bookTitleSelector = document.querySelector('.book-title');
+let authorSelector = document.querySelector('.author');
+let nPagesSelector = document.querySelector('.nPages');
+
 const myLibrary = [];
 
 function Book(title, author, nPages, read){
@@ -16,6 +22,11 @@ function addBookToLibrary(book){
 }
 
 
-const theHobbit = new Book('The Hobbit','J.R.R. Tolkien',295,'not read yet');
-addBookToLibrary(theHobbit);
-console.log(myLibrary);
+// on clicking the add book btn a form should come up in which you can add the details of the book.
+
+addBook.addEventListener('click', ()=>{
+    dialogForm.showModal();
+});
+
+
+// on clicking the sumbit btn on the addBookForm you should create a function that takes in user input, create book object based on that input, and store that object in the array.

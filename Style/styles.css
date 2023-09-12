@@ -7,27 +7,23 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-:root{
-    --header-height: 6rem;
-    --footer-height: 6rem;
-}
-
 body{
     background: #023047;
 }
 
 .wrapper{
     display: grid;
-    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-rows: 1fr 9fr 1fr;
     justify-items: center;
     gap: 2rem;
 }
 
 .wrapper .header{
+    border: 1px solid white;
     grid-row: 1/2;
     width: 100%;
     background: #caf0f8;
-    height: var(--header-height);
+    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,11 +32,10 @@ body{
 .wrapper .main-content{
     grid-row: 2/3;
     display: grid;
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: 1fr 8fr;
     gap: 2rem;
     justify-items: center;
     width: 60%;
-    min-height: calc(100vh - (var(--header-height)+var(--footer-height)));
     border: 1px solid white;
 }
 
@@ -49,6 +44,7 @@ body{
     justify-content: center;
     align-items: center;
 }
+
 
 .add-book button{
     font-family: inherit;
@@ -71,11 +67,35 @@ body{
 }
 
 .wrapper .footer{
+    border: 1px solid white;
     grid-row: 3/4;
-    height: var(--footer-height);
+    height: 5rem;
     width: 100%;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.form{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 20rem;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+input[type='text'], input[type='number']{
+    width: 80%;
+    height: 1.5rem;
+    outline: none;
+    /* border: none; */
+    border-radius: 10px;
+    text-indent: 10px;
 }
