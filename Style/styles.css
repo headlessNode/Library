@@ -1,10 +1,10 @@
-@import url('https //fonts.googleapis.com/css?family=roboto+condensed');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body{
@@ -22,7 +22,7 @@ body{
     border: 1px solid white;
     grid-row: 1/2;
     width: 100%;
-    background: #caf0f8;
+    background: #F5E3E0;
     height: 5rem;
     display: flex;
     justify-content: center;
@@ -78,6 +78,9 @@ body{
 }
 
 .form{
+    background: #7293A0;
+    border: none;
+    border-radius: 10px;
     position: absolute;
     top: 30%;
     left: 50%;
@@ -95,7 +98,10 @@ input[type='text'], input[type='number']{
     width: 80%;
     height: 1.5rem;
     outline: none;
-    /* border: none; */
+    border: none;
     border-radius: 10px;
     text-indent: 10px;
+    background: #C2D0D6;
+    font-family: inherit;
+    font-size: large;
 }
