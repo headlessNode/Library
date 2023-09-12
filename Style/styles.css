@@ -82,11 +82,11 @@ body{
     border: none;
     border-radius: 10px;
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 20rem;
-    height: 12rem;
+    height: 18rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -94,9 +94,9 @@ body{
     gap: 1rem;
 }
 
-input[type='text'], input[type='number']{
+.form input[type='text'], .form input[type='number']{
     width: 80%;
-    height: 1.5rem;
+    height: 2.5rem;
     outline: none;
     border: none;
     border-radius: 10px;
@@ -104,4 +104,19 @@ input[type='text'], input[type='number']{
     background: #C2D0D6;
     font-family: inherit;
     font-size: large;
+}
+
+.form button{
+    font-family: inherit;
+    font-size: large;
+    height: 2.5rem;
+    width: 6rem;
+    border: none;
+    border-radius: 10px;
+    background: none;
+    cursor: pointer;
+}
+
+.form button:hover{
+    background: #C2D0D6;
 }
