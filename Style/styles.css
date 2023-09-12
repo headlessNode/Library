@@ -6,6 +6,15 @@
     box-sizing: border-box;
     font-family: 'Roboto Condensed', sans-serif;
 }
+
 body{
     background: #023047;
+}
+
+.wrapper .header{
+    background: #caf0f8;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
