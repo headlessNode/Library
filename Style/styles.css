@@ -113,6 +113,44 @@ body{
     font-size: large;
 }
 
+.checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog input[type='checkbox']{
+    appearance: none;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 2px solid black;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog input[type='checkbox']::after{
+    font-family: 'Font Awesome 6 Free';
+    font-weight: bolder;
+    font-size: 15px;
+    content: '\f00c';
+    display: none;
+}
+
+.dialog input[type='checkbox']:hover{
+    background: #C2D0D6;
+}
+
+.dialog input[type='checkbox']:checked{
+    background: #caf0f8;
+}
+
+.dialog input[type='checkbox']:checked::after{
+    display: block;
+}
+
 .dialog button{
     font-family: inherit;
     font-size: large;
