@@ -20,10 +20,12 @@
                 </div>
                 <dialog class="dialog">
                     <form method="dialog">
-                        <input type="text" name="book-title" id="book-title" class="book-title" placeholder="Book Title">
-                        <input type="text" name="author" id="author" class="author" placeholder="Author">
-                        <input type="number" name="nPages" id="nPages" class="nPages" placeholder="Number of Pages">
+                        <input type="text" name="book-title" id="book-title" class="book-title" placeholder="Book Title" minlength="3" maxlength="20" pattern="[A-Za-z]+">
+                        <input type="text" name="author" id="author" class="author" placeholder="Author" minlength="3" maxlength="20" pattern="[A-Za-z]+">
+                        <input type="number" name="nPages" id="nPages" class="nPages" placeholder="Number of Pages" max="5000">
                         
+                        <div class="fail-msg"></div>
+
                         <label class="checkbox" for="read" style="font-weight: 600;">Have you read it?&nbsp&nbsp&nbsp<input type="checkbox" name="read" id="read" class="read"></label>
                         
                         <button type="submit" class="submit-btn">Submit</button>

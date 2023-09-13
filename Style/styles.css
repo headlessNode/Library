@@ -98,6 +98,12 @@ body{
     align-items: center;
     height: 100%;
     width: 100%;
+    word-wrap: normal;
+}
+
+.fail-msg{
+    width: 70%;
+    text-align: center;
 }
 
 .dialog input[type='text'], .dialog input[type='number']{
