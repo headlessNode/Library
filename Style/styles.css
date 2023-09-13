@@ -177,6 +177,7 @@ body{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(240px, 1fr));
+    gap: 20px;
     grid-template-rows: max-content;
     align-items: center;
     justify-items: center;
@@ -197,6 +198,8 @@ body{
 
 .bookCard-btns{
     width: 90%;
+    font-size: medium;
+    font-weight: medium;
     height: 3rem;
     border-radius: 15px;
     cursor: pointer;

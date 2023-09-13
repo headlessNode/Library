@@ -14,8 +14,6 @@ let title;
 let author;
 let nPages;
 let read;
-let nBooksAdded = 0;
-
 
 // on clicking the add book btn a form should come up in which you can add the details of the book.
 addBook.addEventListener('click', ()=>{
@@ -106,21 +104,28 @@ function addBookToLibrary(book){
     myLibrary.push(book);
 }
 
+function removeBookFromLibrary(bookIndex){
+    console.log('bookIndex: ' + bookIndex);
+    myLibrary.splice(bookIndex,1);
+
+    console.log(myLibrary);
+}
+
 function addBooksToPage(myLibrary){
-    console.log(myLibrary[nBooksAdded]);
+
     let bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
     //Add title to the card
     const bookTitle = document.createElement('h3');
-    bookTitle.textContent = myLibrary[nBooksAdded].title;
+    bookTitle.textContent = myLibrary[myLibrary.length - 1].title;
     bookCard.appendChild(bookTitle);
     //Add Author to the card
     const bookAuthor = document.createElement('p');
-    bookAuthor.textContent = myLibrary[nBooksAdded].author;
+    bookAuthor.textContent = myLibrary[myLibrary.length - 1].author;
     bookCard.appendChild(bookAuthor);
     //Add nPages to the card
     const bookPages = document.createElement('p');
-    bookPages.textContent = 'Number of Pages:' + ' ' + myLibrary[nBooksAdded].nPages;
+    bookPages.textContent = 'Number of Pages:' + ' ' + myLibrary[myLibrary.length - 1].nPages;
     bookCard.appendChild(bookPages);
     //Add read button
     const readButton = document.createElement('button');
@@ -133,15 +138,26 @@ function addBooksToPage(myLibrary){
     removeBtn.textContent = 'Remove';
     removeBtn.classList.add('bookCard-btns');
     removeBtn.classList.add('remove-btn');
+
+    removeBtn.dataset.index = myLibrary.length - 1;
+    // index = removeBtn.dataset.index;
+
     bookCard.appendChild(removeBtn);
+    removeBtn.addEventListener('click', (e)=>{
+        console.log('Index to remove: ' + removeBtn.dataset.index);
+        removeBookFromLibrary(removeBtn.dataset.index);
+        bookCard.remove();
+    });
+
 
     booksContainer.appendChild(bookCard);
 
-    nBooksAdded++;
 }
+
 
 function main(){
     
+
     const libraryBook = new Book(title,author,nPages,read);
 
     addBookToLibrary(libraryBook);
