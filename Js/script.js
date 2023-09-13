@@ -4,28 +4,19 @@ let bookTitleSelector = document.querySelector('.book-title');
 let authorSelector = document.querySelector('.author');
 let nPagesSelector = document.querySelector('.nPages');
 let submitBtn = document.querySelector('.submit-btn');
+let readCheck = document.querySelector('.read-check');
 let validationFailed = document.querySelector('.fail-msg');
 
+
 const myLibrary = [];
-
-function Book(title, author, nPages, read){
-    this.title = title;
-    this.author = author;
-    this.nPages = nPages;
-    this.read = read;
-    
-    this.info = function () {
-        return title+ ' ' + 'by' + ' ' + author + ',' + nPages + 'pages'+','+' '+read;
-    }
-}
-
-function addBookToLibrary(book){
-    myLibrary.push(book);
-}
+let title;
+let author;
+let nPages;
+let read;
+let theHobbit;
 
 
 // on clicking the add book btn a form should come up in which you can add the details of the book.
-
 addBook.addEventListener('click', ()=>{
     dialogForm.showModal();
     dialogForm.style.top = '35%';
@@ -33,7 +24,7 @@ addBook.addEventListener('click', ()=>{
 });
 
 
-// on clicking the sumbit btn on the addBookForm you should create a function that takes in user input, create book object based on that input, and store that object in the array.
+// on clicking the submit btn on the addBookForm you should create a function that takes in user input.
 submitBtn.addEventListener('click', ()=>{
 
     //The input fields must not be empty. Except the checkbox
@@ -79,12 +70,49 @@ submitBtn.addEventListener('click', ()=>{
             bookTitleSelector.style.background = '#C2D0D6';
             authorSelector.style.background = '#C2D0D6';
 
+            title = bookTitleSelector.value;
+            author = authorSelector.value;
+            nPages = nPagesSelector.value;
 
+            if(readCheck.checked){
+                read = 'read';
+            }
+            else{
+                read = 'not read';
+            }
             event.preventDefault();
         }
-
+        main();
     }
-
     // dialogForm.style.top = '-30%';
     // dialogForm.style.opacity = '0';
-})
+});
+
+
+
+//based on the user input, create book object and add it into the library array.
+function Book(title, author, nPages, read){
+    console.log(this);
+    this.title = title;
+    this.author = author;
+    this.nPages = nPages;
+    this.read = read;
+    
+    this.info = function () {
+        return title+ ' ' + 'by' + ' ' + author + ',' + nPages + 'pages'+','+' '+read;
+    }
+}
+
+function addBookToLibrary(book){
+    myLibrary.push(book);
+}
+
+function main(){
+    
+    const libraryBook = new Book(title,author,nPages,read);
+
+    addBookToLibrary(libraryBook);
+    console.log(myLibrary);
+}
+
+
