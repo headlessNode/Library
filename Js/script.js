@@ -6,6 +6,7 @@ let nPagesSelector = document.querySelector('.nPages');
 let submitBtn = document.querySelector('.submit-btn');
 let readCheck = document.querySelector('.read-check');
 let validationFailed = document.querySelector('.fail-msg');
+let booksContainer = document.querySelector('.books')
 
 
 const myLibrary = [];
@@ -13,7 +14,7 @@ let title;
 let author;
 let nPages;
 let read;
-let theHobbit;
+let nBooksAdded = 0;
 
 
 // on clicking the add book btn a form should come up in which you can add the details of the book.
@@ -80,7 +81,6 @@ submitBtn.addEventListener('click', ()=>{
             else{
                 read = 'not read';
             }
-            event.preventDefault();
         }
         main();
     }
@@ -92,7 +92,6 @@ submitBtn.addEventListener('click', ()=>{
 
 //based on the user input, create book object and add it into the library array.
 function Book(title, author, nPages, read){
-    console.log(this);
     this.title = title;
     this.author = author;
     this.nPages = nPages;
@@ -107,12 +106,48 @@ function addBookToLibrary(book){
     myLibrary.push(book);
 }
 
+function addBooksToPage(myLibrary){
+    console.log(myLibrary[nBooksAdded]);
+    let bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
+    //Add title to the card
+    const bookTitle = document.createElement('h3');
+    bookTitle.textContent = myLibrary[nBooksAdded].title;
+    bookCard.appendChild(bookTitle);
+    //Add Author to the card
+    const bookAuthor = document.createElement('p');
+    bookAuthor.textContent = myLibrary[nBooksAdded].author;
+    bookCard.appendChild(bookAuthor);
+    //Add nPages to the card
+    const bookPages = document.createElement('p');
+    bookPages.textContent = 'Number of Pages:' + ' ' + myLibrary[nBooksAdded].nPages;
+    bookCard.appendChild(bookPages);
+    //Add read button
+    const readButton = document.createElement('button');
+    readButton.textContent = read;
+    readButton.classList.add('bookCard-btns');
+    readButton.classList.add('read-btn');
+    bookCard.appendChild(readButton);
+    //Add remove button
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove';
+    removeBtn.classList.add('bookCard-btns');
+    removeBtn.classList.add('remove-btn');
+    bookCard.appendChild(removeBtn);
+
+    booksContainer.appendChild(bookCard);
+
+    nBooksAdded++;
+}
+
 function main(){
     
     const libraryBook = new Book(title,author,nPages,read);
 
     addBookToLibrary(libraryBook);
-    console.log(myLibrary);
+    addBooksToPage(myLibrary);
+
+
 }
 
 

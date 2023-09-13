@@ -35,7 +35,7 @@ body{
     grid-template-rows: 1fr 8fr;
     gap: 2rem;
     justify-items: center;
-    width: 60%;
+    width: 70%;
     border: 1px solid white;
 }
 
@@ -86,7 +86,7 @@ body{
     left: 50%;
     transform: translate(-50%,-50%);
     width: 18rem;
-    height: 22rem;
+    height: 24rem;
     transition: all 1s ease;
     opacity: 0;
 }
@@ -171,4 +171,46 @@ body{
 
 .dialog button:hover{
     background: #C2D0D6;
+}
+
+.wrapper .books{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(240px, 1fr));
+    grid-template-rows: max-content;
+    align-items: center;
+    justify-items: center;
+}
+
+.book-card{
+    background: #F5E3E0;
+    border: 1px solid white;
+    display: grid;
+    grid-template-rows: 1fr 0.5fr 0.5fr 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    justify-items: center;
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px 0 10px 0;
+}
+
+.bookCard-btns{
+    width: 90%;
+    height: 3rem;
+    border-radius: 15px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: all 0.5s ease;
+}
+
+.remove-btn:hover{
+    background: red;
+    color: white;
+}
+
+.read-btn:hover{
+    background: blue;
+    color: white;
 }
