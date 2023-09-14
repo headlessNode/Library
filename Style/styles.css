@@ -19,7 +19,7 @@ body{
 }
 
 .wrapper .header{
-    border: 1px solid white;
+
     grid-row: 1/2;
     width: 100%;
     background: #F5E3E0;
