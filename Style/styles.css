@@ -90,6 +90,12 @@ body{
     opacity: 0;
 }
 
+.dialog::backdrop{
+    background-color: rgba(128, 128, 128, 0.5);
+    cursor: pointer;
+    pointer-events: all;
+}
+
 .dialog form{
     border: 1px solid;
     display: grid;

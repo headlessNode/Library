@@ -150,6 +150,16 @@ submitBtn.addEventListener('click', ()=>{
     }
 });
 
+//On clicking backdrop area dialog closes.
+dialogForm.addEventListener('click', (e)=>{
+    let dialogRect = e.target.getBoundingClientRect();
+    if(dialogRect.left > e.clientX || dialogRect.right < e.clientX
+        || dialogRect.top > e.clientY || dialogRect.bottom < e.clientY){
+            dialogForm.style.top = '-30%';
+            dialogForm.style.opacity = '0';
+            dialogForm.close();
+        }
+})
 
 
 //based on the user input, create book object and add it into the library array.
