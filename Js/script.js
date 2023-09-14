@@ -105,20 +105,65 @@ function addBookToLibrary(book){
 }
 
 function removeBookFromLibrary(bookIndex){
-    console.log('bookIndex: ' + bookIndex);
+
     myLibrary.splice(bookIndex,1);
 
     let removeBtn = document.querySelectorAll('.remove-btn');
     removeBtn.forEach((currentValue,currentIndex, listObj)=>{
         if(removeBtn[currentIndex].dataset.index > bookIndex){
             let datasetIndex = parseInt(removeBtn[currentIndex].dataset.index);
-            console.log('oldDatasetIndex: '+datasetIndex);
+            
             let newDatasetIndex = datasetIndex - 1;
-            console.log('newDatasetIndex: '+newDatasetIndex);
+            
             removeBtn[currentIndex].dataset.index = newDatasetIndex;
         }
     });
 
+    
+}
+
+function changeReadStatus(status, event){
+    
+    let targetTitle = event.target.parentElement.firstElementChild.textContent;
+    
+    console.log(targetTitle);
+
+
+    if(status === 'read'){
+        event.target.dataset.status = 'not read';
+        event.target.textContent = 'not read';
+        read = 'not read';
+        
+        myLibrary.filter((object)=>{
+            console.log(object.title);
+    
+            if(object.title === targetTitle){
+                console.log('change read status in library');
+                object.read = 'not read';
+            }
+    
+        });
+
+        
+        
+    }
+    else if (status === 'not read'){
+        event.target.dataset.status = 'read';
+        event.target.textContent = 'read';
+        read = 'read';
+        
+        myLibrary.filter((object)=>{
+            console.log(object.title);
+    
+            if(object.title === targetTitle){
+                console.log('change read status in library');
+                object.read = 'read';
+            }
+    
+        });
+
+
+    }
     console.log(myLibrary);
 }
 
@@ -129,6 +174,7 @@ function addBooksToPage(myLibrary){
     //Add title to the card
     const bookTitle = document.createElement('h3');
     bookTitle.textContent = myLibrary[myLibrary.length - 1].title;
+    bookTitle.classList.add('title');
     bookCard.appendChild(bookTitle);
     //Add Author to the card
     const bookAuthor = document.createElement('p');
@@ -143,7 +189,12 @@ function addBooksToPage(myLibrary){
     readButton.textContent = read;
     readButton.classList.add('bookCard-btns');
     readButton.classList.add('read-btn');
+
+    readButton.dataset.status = myLibrary[myLibrary.length - 1].read;
+
     bookCard.appendChild(readButton);
+
+    
     //Add remove button
     const removeBtn = document.createElement('button');
     removeBtn.textContent = 'Remove';
@@ -151,11 +202,15 @@ function addBooksToPage(myLibrary){
     removeBtn.classList.add('remove-btn');
 
     removeBtn.dataset.index = myLibrary.length - 1;
-    // index = removeBtn.dataset.index;
 
     bookCard.appendChild(removeBtn);
+
+    readButton.addEventListener('click', (event)=>{
+        changeReadStatus(readButton.dataset.status, event);
+    });
+
     removeBtn.addEventListener('click', (e)=>{
-        console.log('Index to remove: ' + removeBtn.dataset.index);
+        
         removeBookFromLibrary(removeBtn.dataset.index);
         bookCard.remove();
     });
