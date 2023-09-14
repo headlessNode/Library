@@ -36,7 +36,6 @@ body{
     gap: 2rem;
     justify-items: center;
     width: 70%;
-    border: 1px solid white;
 }
 
 .wrapper .main-content .add-book{
@@ -67,7 +66,6 @@ body{
 }
 
 .wrapper .footer{
-    border: 1px solid white;
     grid-row: 3/4;
     height: 5rem;
     width: 100%;
@@ -75,6 +73,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .dialog{
