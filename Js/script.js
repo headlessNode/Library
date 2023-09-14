@@ -202,7 +202,6 @@ function changeReadStatus(status, event){
     
     let targetTitle = event.target.parentElement.firstElementChild.textContent;
     
-    console.log(targetTitle);
 
 
     if(status === 'read'){
@@ -211,10 +210,10 @@ function changeReadStatus(status, event){
         read = 'not read';
         
         myLibrary.filter((object)=>{
-            console.log(object.title);
+
     
             if(object.title === targetTitle){
-                console.log('change read status in library');
+
                 object.read = 'not read';
             }
     
@@ -229,10 +228,10 @@ function changeReadStatus(status, event){
         read = 'read';
         
         myLibrary.filter((object)=>{
-            console.log(object.title);
+
     
             if(object.title === targetTitle){
-                console.log('change read status in library');
+
                 object.read = 'read';
             }
     
@@ -240,7 +239,7 @@ function changeReadStatus(status, event){
 
 
     }
-    console.log(myLibrary);
+
 }
 
 function addBooksToPage(myLibrary){
