@@ -108,6 +108,17 @@ function removeBookFromLibrary(bookIndex){
     console.log('bookIndex: ' + bookIndex);
     myLibrary.splice(bookIndex,1);
 
+    let removeBtn = document.querySelectorAll('.remove-btn');
+    removeBtn.forEach((currentValue,currentIndex, listObj)=>{
+        if(removeBtn[currentIndex].dataset.index > bookIndex){
+            let datasetIndex = parseInt(removeBtn[currentIndex].dataset.index);
+            console.log('oldDatasetIndex: '+datasetIndex);
+            let newDatasetIndex = datasetIndex - 1;
+            console.log('newDatasetIndex: '+newDatasetIndex);
+            removeBtn[currentIndex].dataset.index = newDatasetIndex;
+        }
+    });
+
     console.log(myLibrary);
 }
 
