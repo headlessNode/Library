@@ -23,30 +23,46 @@ addBook.addEventListener('click', ()=>{
 });
 
 
-// on clicking the submit btn on the addBookForm you should create a function that takes in user input.
+// on clicking the submit btn on the dialogForm you should create a function that takes in user input.
 submitBtn.addEventListener('click', ()=>{
 
     //The input fields must not be empty. Except the checkbox
-    if(bookTitleSelector.value === '' || authorSelector.value === '' || nPagesSelector.value === ''){
-        if(bookTitleSelector.value === ''){
-            bookTitleSelector.style.background = '#BF8891';
-        }
+    if(bookTitleSelector.value === '' && authorSelector.value === '' && nPagesSelector.value === ''){
 
-        else if(authorSelector.value === ''){
-            authorSelector.style.background = '#BF8891';
-        }
+        bookTitleSelector.style.background = '#BF8891';
+        authorSelector.style.background = '#BF8891';
+        nPagesSelector.style.background = '#BF8891';
 
-        else if(nPagesSelector.value === ''){
-            nPagesSelector.style.background = '#BF8891';
-        }
-
-        else{
-            bookTitleSelector.style.background = '#BF8891';
-            authorSelector.style.background = '#BF8891';
-            nPagesSelector.style.background = '#BF8891';
-        }
         
-        validationFailed.textContent = '* Input fields must not be empty.'
+        validationFailed.textContent = '* Input fields must not be empty.';
+        validationFailed.style.color = '#83202B';
+        validationFailed.style.fontWeight = 'bold';
+        event.preventDefault();
+    }
+
+    else if(bookTitleSelector.value === ''){
+        bookTitleSelector.style.background = '#BF8891';
+        validationFailed.textContent = '* Input fields must not be empty';
+
+        validationFailed.textContent = '* Input fields must not be empty.';
+        validationFailed.style.color = '#83202B';
+        validationFailed.style.fontWeight = 'bold';
+        event.preventDefault();
+    }
+    else if(authorSelector.value === ''){
+        authorSelector.style.background = '#BF8891';
+        
+        validationFailed.textContent = '* Input fields must not be empty.';
+        validationFailed.style.color = '#83202B';
+        validationFailed.style.fontWeight = 'bold';
+        event.preventDefault();
+    }
+    else if(nPagesSelector.value === ''){
+        nPagesSelector.style.background = '#BF8891';
+
+        validationFailed.textContent = '* Input fields must not be empty.';
+        validationFailed.style.color = '#83202B';
+        validationFailed.style.fontWeight = 'bold';
         event.preventDefault();
     }
 
@@ -56,18 +72,64 @@ submitBtn.addEventListener('click', ()=>{
         bookTitleSelector.style.background = '#C2D0D6';
         authorSelector.style.background = '#C2D0D6';
         nPagesSelector.style.background = '#C2D0D6';
+        
+        // Various validation checks for input fields and call to main if check pass.
+        let hasNumber = /\d/;
 
+        let bookAlreadyExists = false;
+
+        for(let i=0; i<myLibrary.length;i++){
+            if(myLibrary[i].title === bookTitleSelector.value){
+                bookAlreadyExists = true;
+            }
+        }
         
         if(bookTitleSelector.value === authorSelector.value){
             bookTitleSelector.style.background = '#BF8891';
             authorSelector.style.background = '#BF8891';
             validationFailed.textContent = '* Book and Author name must not match.'
+            validationFailed.style.color = '#83202B';
+            validationFailed.style.fontWeight = 'bold';
+            event.preventDefault();
+        }
+
+
+        else if(hasNumber.test(authorSelector.value)){
+            authorSelector.style.background = '#BF8891';
+            validationFailed.textContent = '* Author name cannot contain a number.'
+            validationFailed.style.color = '#83202B';
+            validationFailed.style.fontWeight = 'bold';
+            event.preventDefault();
+        }
+
+        else if(bookTitleSelector.value.length < 3){
+            bookTitleSelector.style.background = '#BF8891';
+            validationFailed.textContent = '* Book title cannot be less than 3 characters.'
+            validationFailed.style.color = '#83202B';
+            validationFailed.style.fontWeight = 'bold';
+            event.preventDefault();
+        }
+
+        else if(authorSelector.value.length < 3){
+            authorSelector.style.background = '#BF8891';
+            validationFailed.textContent = '* Author name cannot be less than 3 characters.'
+            validationFailed.style.color = '#83202B';
+            validationFailed.style.fontWeight = 'bold';
+            event.preventDefault();
+        }
+
+        else if(bookAlreadyExists){
+            validationFailed.textContent = '* This Book already exists in the library.';
+            validationFailed.style.color = '#83202B';
+            validationFailed.style.fontWeight = 'bold';
             event.preventDefault();
         }
 
         else{
+
             bookTitleSelector.style.background = '#C2D0D6';
             authorSelector.style.background = '#C2D0D6';
+            nPagesSelector.style.background = '#C2D0D6';
 
             title = bookTitleSelector.value;
             author = authorSelector.value;
@@ -79,11 +141,13 @@ submitBtn.addEventListener('click', ()=>{
             else{
                 read = 'not read';
             }
+
+            dialogForm.style.top = '-30%';
+            dialogForm.style.opacity = '0';
+             main();
+
         }
-        main();
     }
-    // dialogForm.style.top = '-30%';
-    // dialogForm.style.opacity = '0';
 });
 
 
@@ -101,6 +165,8 @@ function Book(title, author, nPages, read){
 }
 
 function addBookToLibrary(book){
+
+
     myLibrary.push(book);
 }
 

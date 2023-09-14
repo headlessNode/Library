@@ -20,9 +20,9 @@
                 </div>
                 <dialog class="dialog">
                     <form method="dialog">
-                        <input type="text" name="book-title" id="book-title" class="book-title" placeholder="Book Title" minlength="3" maxlength="20" pattern="[a-zA-Z\s.]+$">
-                        <input type="text" name="author" id="author" class="author" placeholder="Author" minlength="3" maxlength="20" pattern="[a-zA-Z\s.]+$">
-                        <input type="number" name="nPages" id="nPages" class="nPages" placeholder="Number of Pages" max="5000">
+                        <input type="text" name="book-title" id="book-title" class="book-title" placeholder="Book Title" maxlength="20">
+                        <input type="text" name="author" id="author" class="author" placeholder="Author" maxlength="20">
+                        <input type="number" name="nPages" id="nPages" class="nPages" placeholder="Number of Pages" min="0" max="5000">
                         
                         <div class="fail-msg"></div>
 
