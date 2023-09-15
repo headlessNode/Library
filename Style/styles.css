@@ -97,7 +97,7 @@ body{
 }
 
 .dialog form{
-    border: 1px solid;
+
     display: grid;
     justify-items: center;
     align-items: center;
