@@ -162,15 +162,18 @@ dialogForm.addEventListener('click', (e)=>{
 })
 
 
-//based on the user input, create book object and add it into the library array.
-function Book(title, author, nPages, read){
-    this.title = title;
-    this.author = author;
-    this.nPages = nPages;
-    this.read = read;
-    
-    this.info = function () {
-        return title+ ' ' + 'by' + ' ' + author + ',' + nPages + 'pages'+','+' '+read;
+//Use class to create book object
+class Book{
+    constructor(title, author, nPages, read){
+        this.title = title;
+        this.author = author;
+        this.nPages = nPages;
+        this.read = read;
+
+        this.info = function(){
+            return title+ ' ' + 'by' + ' ' + author + ',' + nPages + 'pages'+','+' '+ read;
+        }
+
     }
 }
 
